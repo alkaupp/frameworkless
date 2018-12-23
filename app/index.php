@@ -1,7 +1,7 @@
 <?php
 
 use DI\ContainerBuilder;
-use Fwless\Route\RouteConfiguration;
+use Fwless\Configuration\RouteConfiguration;
 use League\Route\Router;
 use Fwless\Server\RequestSender;
 use Nyholm\Psr7\Response;

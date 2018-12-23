@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Fwless\Route;
+namespace Fwless\Configuration;
 
 use League\Route\Router;
 
