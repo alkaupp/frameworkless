@@ -15,8 +15,7 @@ class ParameterExampleAction
         return new Response(
             200,
             ["Content-Type" => "application/json"],
-            json_encode(["this is an" => "example{$identifier}"]
-            )
+            json_encode(["this is an" => "example{$identifier}"])
         );
     }
 }
