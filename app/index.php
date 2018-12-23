@@ -1,7 +1,7 @@
 <?php
 
 use DI\ContainerBuilder;
-use Fwless\Configuration\RouteConfiguration;
+use Fwless\Configuration\AppConfiguration;
 use League\Route\Router;
 use Fwless\Server\RequestSender;
 use Nyholm\Psr7\Response;
@@ -13,9 +13,9 @@ $containerBuilder = new ContainerBuilder();
 $containerBuilder->addDefinitions(__DIR__ . "/config/dependency-injection.php");
 try {
     $container = $containerBuilder->build();
-    $routeBuilder = $container->get(RouteConfiguration::class);
+    $appConfig = new AppConfiguration($container);
+    $appConfig->configure();
     $router = $container->get(Router::class);
-    $routeBuilder->configure($router);
     $requestCreator = $container->get(ServerRequestCreatorInterface::class);
     $response = $router->dispatch($requestCreator->fromGlobals());
 } catch (\League\Route\Http\Exception\NotFoundException $e) {

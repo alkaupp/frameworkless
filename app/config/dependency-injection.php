@@ -9,7 +9,7 @@ return [
     \League\Route\Router::class => create(\League\Route\Router::class)
         ->method("setStrategy", get(\League\Route\Strategy\ApplicationStrategy::class)),
     \Fwless\Configuration\RouteConfiguration::class => create(\Fwless\Configuration\RouteConfiguration::class)
-        ->constructor(__DIR__ . "/routes.php"),
+        ->constructor(__DIR__ . "/routes.php", get(\League\Route\Router::class)),
     \Nyholm\Psr7Server\ServerRequestCreatorInterface::class => create(\Nyholm\Psr7Server\ServerRequestCreator::class)
         ->constructor(
             new \Nyholm\Psr7\Factory\Psr17Factory(),
