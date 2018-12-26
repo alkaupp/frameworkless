@@ -2,9 +2,15 @@ version: '3'
 
 services:
   php-server:
-    image: php:7.3-apache
+    build:
+      context: ./docker
     ports:
       - "8080:80"
     volumes:
       - ./app:/var/www/html
-    command: bash -c 'a2enmod rewrite && apache2-foreground'
+  composer:
+    image: composer
+    command: install
+    volumes:
+      - ./app:/var/www/html
+    working_dir: /var/www/html
