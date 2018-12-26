@@ -11,9 +11,6 @@ Running the application
 -----------------------
 
 ```
-cd app
-composer install --no-dev
-cd ..
 docker-compose up
 ```
 
